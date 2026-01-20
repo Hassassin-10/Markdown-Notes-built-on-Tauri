@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Color Variables - Override by themes */
+  --bg-color: #0f0f0f;
+  --text-color: #f6f6f6;
+  --glass-bg: rgba(23, 23, 23, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --accent-color: #3b82f6;
+  --secondary-text: #a1a1aa;
+
+  --ck-color-base-background: transparent !important;
+  --ck-color-base-border: transparent !important;
+  --ck-color-base-text: var(--text-color) !important;
+  --ck-color-link-default: var(--accent-color) !important;
+  --ck-focus-ring: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.5s ease;
+}
+
+/* Background Animated Gradient Mesh */
+#app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 10%, rgba(76, 29, 149, 0.2), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(13, 148, 136, 0.2), transparent 40%),
+    radial-gradient(circle at 10% 80%, rgba(219, 39, 119, 0.1), transparent 40%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Grid Layout */
+#main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 1.5rem;
+  height: 100vh;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+/* Title Section */
+#title-section {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#titleDiv {
+  width: 100%;
+}
+
+#title {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  outline: none;
+  text-align: center;
+  resize: none;
+  height: auto;
+  min-height: 3rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Editor Section */
+#editor-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  /* Reduced padding for cleaner look */
+}
+
+#textDiv {
+  flex: 1;
+  /* overflow-y: auto; handled by editor usually */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.text {
+  flex: 1;
+  background: transparent !important;
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  border: none;
+  outline: none;
+}
+
+/* CKEditor Custom Overrides to Transparency */
+.ck-editor__editable {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.ck.ck-content {
+  padding: 0 1rem;
+}
+
+.ck.ck-content ul {
+  padding-left: 2rem;
+}
+
+/* Status Bar / Footer */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  min-height: 60px;
+}
+
+.bottomLeft,
+.bottomRight {
+  position: relative;
+  /* Override fixed */
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
+
+.pages {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: none;
+}
+
+.pages li {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.pages li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.pages li.active {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.bottomRight>div {
+  background: transparent;
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Popups */
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+}
+
+.glass-popup {
+  pointer-events: auto;
+  background: rgba(23, 23, 23, 0.85);
+  /* Slightly more opaque */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 600px;
+  max-width: 90vw;
+  animation: popupFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#cssGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.theme {
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Command Palette Specifics */
+.results {
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.focused .suggestion,
+.suggestion:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+kbd {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.8em;
+  font-family: monospace;
+  color: var(--secondary-text);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--secondary-text);
+}
+
+/* Toastify Override */
+.toastify {
+  background: rgba(30, 30, 30, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--glass-border);
+  margin: 1rem 0;
+  position: static;
+  /* removed absolute */
+}

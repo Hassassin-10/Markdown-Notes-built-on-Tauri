@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #0f0f0f;
+    --text-color: #f6f6f6;
+    --glass-bg: rgba(23, 23, 23, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --accent-color: #3b82f6;
+    /* Blue */
+    --secondary-text: #a1a1aa;
+}
+
+#app-background {
+    background: radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.15), transparent 40%),
+        radial-gradient(circle at 90% 60%, rgba(139, 92, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 10% 80%, rgba(236, 72, 153, 0.1), transparent 40%);
+}

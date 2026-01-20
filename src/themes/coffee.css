@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #e8e1d2;
+    /* Light Coffee Background */
+    --text-color: #3e2723;
+    /* Dark Brown */
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(62, 39, 35, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(62, 39, 35, 0.1);
+    --accent-color: #795548;
+    /* Brown */
+    --secondary-text: #6d4c41;
+}
+
+#app-background {
+    background: radial-gradient(circle at 50% 50%, rgba(215, 204, 200, 0.5), transparent 80%);
+}

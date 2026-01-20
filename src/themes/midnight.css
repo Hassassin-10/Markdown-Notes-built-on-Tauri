@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #0c0a18;
+    /* Deep Purple Black */
+    --text-color: #e0e7ff;
+    --glass-bg: rgba(30, 27, 75, 0.4);
+    --glass-border: rgba(129, 140, 248, 0.15);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --accent-color: #818cf8;
+    /* Indigo */
+    --secondary-text: #6366f1;
+}
+
+#app-background {
+    background: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.25), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.25), transparent 50%);
+}
