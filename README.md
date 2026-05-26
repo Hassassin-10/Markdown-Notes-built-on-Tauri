@@ -1,4 +1,4 @@
-# Markdown Notes
+# Markdown Notes v1.0
 
 <img src='public/demo.png'>
 A modern, glassmorphism-styled markdown editor built with Tauri.
